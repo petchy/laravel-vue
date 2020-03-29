@@ -10,7 +10,7 @@
             <th>แก้ไข</th>
             <th>ลบ</th>
           </tr>
-          <tr v-for="user in users">
+          <tr v-bind:key="user.id" v-for="user in users">
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.city }}</td>
@@ -18,6 +18,7 @@
             <td><a href="#" class="btn btn-warning">Delete</a></td>
           </tr>
         </table>
+        <a href="/users/create" class="btn btn-primary">เพิ่มข้อมูล</a>
       </div>
     </div>
 </template>
