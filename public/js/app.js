@@ -1737,7 +1737,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.getUsers();
+  },
+  methods: {
+    getUsers: function getUsers() {
+      var _this = this;
+
+      axios.get('api/users').then(function (response) {
+        _this.users = response.data;
+      });
+    }
+  },
+  data: function data() {
+    return {
+      users: []
+    };
+  }
+});
 
 /***/ }),
 
@@ -37180,17 +37215,70 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _c("h2", { staticClass: "text-center" }, [_vm._v("แสดงข้อมูล")]),
+      _vm._v(" "),
+      _c(
+        "table",
+        { staticClass: "table table-bordered" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.users, function(user) {
+            return _c("tr", [
+              _c("td", [_vm._v(_vm._s(user.id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(user.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(user.city))]),
+              _vm._v(" "),
+              _vm._m(1, true),
+              _vm._v(" "),
+              _vm._m(2, true)
+            ])
+          })
+        ],
+        2
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h1", [_vm._v("User Component")]),
+    return _c("tr", [
+      _c("th", [_vm._v("รหัส")]),
       _vm._v(" "),
-      _c("h1", [_vm._v("Laravel Vue.js")])
+      _c("th", [_vm._v("ชื่อ")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("จังหวัด")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("แก้ไข")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("ลบ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+        _vm._v("Edit")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("a", { staticClass: "btn btn-warning", attrs: { href: "#" } }, [
+        _vm._v("Delete")
+      ])
     ])
   }
 ]
@@ -49372,6 +49460,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
