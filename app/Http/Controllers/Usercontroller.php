@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class Usercontroller extends Controller
 {
@@ -56,7 +57,8 @@ class Usercontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('edit', compact('id'));
     }
 
     /**

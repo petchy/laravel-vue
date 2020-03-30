@@ -14,7 +14,7 @@
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.city }}</td>
-            <td><a href="#" class="btn btn-primary">Edit</a></td>
+            <td><a :href="'/users/'+user.id+'/edit'" class="btn btn-primary">Edit</a></td>
             <td><a href="#" class="btn btn-warning">Delete</a></td>
           </tr>
         </table>
@@ -30,7 +30,7 @@
       },
       methods:{
         getUsers(){
-          axios.get('api/users').then(response => {
+          axios.get('/api/users').then(response => {
             this.users = response.data;
           });
         }

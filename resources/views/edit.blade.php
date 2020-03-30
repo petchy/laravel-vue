@@ -6,16 +6,16 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Laravel</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="/../css/app.css">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div id="app">
-                    <user></user>
+                    <edit id="{!!$id!!}"></edit>
                 </div>
             </div>
         </div>
     </body>
-    <script src="/js/app.js" charset="utf-8"></script>
+    <script src="/../js/app.js" charset="utf-8"></script>
 </html>
